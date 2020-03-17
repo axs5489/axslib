@@ -1,8 +1,9 @@
 from ctypes import *
+from os import path
 
 __all__ = [ 'Adu2xx' ]
-
-_AduHidDll = WinDLL('H:\Python\l3hlib\Instruments\AduHidTest64\AduHid64.dll')
+_AduHidDllpath = path.abspath(path.dirname(path.abspath(__file__)) + '\AduHidTest64\AduHid64.dll')
+_AduHidDll = WinDLL(_AduHidDllpath)
 
 
 #void * __stdcall OpenAduDevice(unsigned long iTimeout);
