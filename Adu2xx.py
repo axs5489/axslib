@@ -213,6 +213,16 @@ class Adu2xx(object):
 			print("Not valid relay (closeRelay)")
 			return False
 
+	def toggleRelay(self, k):
+		""" Closes a relay. Example message: self.write('SK0') """
+		try:
+			assert k >= 0
+			assert k < self._numRelays
+			return self.setRelayState(int(k), not self._relayStates[str(k)])
+		except:
+			print("Not valid relay (closeRelay)")
+			return False
+
 	def getRelayState(self, k):
 		try:
 			assert k >= 0
